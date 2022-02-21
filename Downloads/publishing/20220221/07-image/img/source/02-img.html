@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        절대경로로 사진 하나를 먼저 띄워보세요.
+    -->
+    <img width="400px" height="400px" src="/Users/yunhee/Downloads/publishing/07-image/img/source/al.png">
+
+    <!--
+        상대경로의 경우 경로가 꼬여있기 때문에 처리가 어렵습니다.
+        html 경로 : /Users/yunhee/Downloads/publishing/07-image/img/source/02-img.html
+        사진 경로 : /Users/yunhee/Downloads/publishing/07-image/img/al.png
+        공통 경로 삭제 후 :
+        source/02-img.html
+        img/al.png
+    -->
+    <img src=""../img/al.png">
+    <!--
+        .. : 이전 폴더로 이동이라는 의미, cmd창에서도 'cd..' 앞 쪽에 있는 디렉토리로 가라는 의미 (뒤로가기)
+    -->
+</body>
+</html>

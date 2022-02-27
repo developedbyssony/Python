@@ -1,7 +1,8 @@
-import math
-height = [192, 122, 188, 145, 126, 165, 102, 154]
+import statistics as stat
+def print_value(str, name, num):
+print str % (name, num)
 
-def ct_percentile(height, percent): size = len(height)
-return sorted(height)[int(math.ceil((size*percent) /100)) -1 ]
+height = [150, 163, 145, 140, 157, 151, 140, 149]
 
-print ct_percentile(height, 70)
+str = "The %s of the list is %.2f"
+print_value(str, "Standard Deviation", stat.stdev(height))

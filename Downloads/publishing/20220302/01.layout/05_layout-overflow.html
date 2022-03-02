@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /*
+        해당 구역의 크기만으로 모든 요소를 출력할 수 없을 때
+        어떻게 처리할지를 지정합니다.
+        overflow:hidden; - 넘치는 컨텐츠를 그냥 숨겨버림
+        overflow:auto; - 넘치는 컨텐츠가 있으면 스크롤바 생성
+        overflow:scroll; - 넘치던 안넘치던 스크롤바 생성
+        overflow-x,y:scroll; - 가로, 세로축 스크롤바 생성 
+        */
+        * {
+        margin: 0px;
+        padding: 0px;
+        }
+        body {
+            font: 12px "굴림", Gulim;
+            margin:10px;
+        }
+        #container {
+            overflow-x:scroll;
+            width: 200px;
+            height: 100px;
+            border: 1px solid grey;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <blockquote>
+            우리가 확실하다고 여기는 것이 아니라 불명확하다며
+            지나치는 사소한 것에 내가 누구인지 말해주는
+            본질적인 요소가 담겨있다.
+        </blockquote>
+        <p> - 김연수(소설가)</p>
+        <p>
+            이 글을 처음 읽게 되었을 때 공감하여 입을
+            다물지 못했다. 무릎 대신 머리를 치는 것 같은
+            느낌을 받았다. 그 뒤로 나는 사람들이 발표하는
+            말이 아닌 일상에서의 사소한 말들에 집중하기
+            시작했던 것 같다. 
+        </p>
+    </div>
+</body>
+</html>

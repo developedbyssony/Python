@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("utf-8");
+	String photo1 = request.getParameter("pic1");
+	String photo2 = request.getParameter("pic2");
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<% if(photo1 == '1번') { %>
+	1번 그림을 골랐습니다. <% } else { %> 2번 그림을 골랐습니다. <% } %>	
+</body>
+</html>

@@ -1,0 +1,7 @@
+1648542801995	Move 'login' to 'webapp'
+1648543675180	Rename resource 'login_fail.jsp'
+1648543697896	Rename resource 'cookie_login.jsp'
+1648553057515	Move 6 resources to 'cookie'
+1648553884456	Rename resource 'NewFile.jsp'
+1648553914009	Rename resource 'session.jsp'
+1648641939896	Rename resource 'error_text.jsp'

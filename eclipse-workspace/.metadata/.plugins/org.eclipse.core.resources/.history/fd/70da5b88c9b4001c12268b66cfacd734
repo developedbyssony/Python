@@ -1,0 +1,63 @@
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.ResultSet"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%
+	request.setCharacterEncoding("utf-8");
+	// 1. useid라는 이름으로 전달되는 데이터를 받으면 (request.get?????)
+	String uid = request.getParameter("userid");
+	String upw = request.getParameter("userpw");
+	// 2. db 연동
+	String dbType = "com.mysql.cj.jdbc.Driver";
+	String connectUrl = "jdbc:mysql://localhost:3306/jdbcprac2?serverTimezone=UTC";
+	String connectId = "root";
+	String connectPw = "mysql1111";
+	
+	ResultSet rs = null;
+		
+	try {
+		Class.forName(dbType); 
+		Connection con = DriverManager.getConnection(connectUrl,connectId,connectPw); 
+		String sql = "SELECT * FROM userinfo WHERE user_id = ?";
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setString(1,uid);
+		rs = pstmt.executeQuery();
+		} catch(Exception e) {
+		e.printStackTrace();
+		}	
+	
+	if(uid.equals(rs)) {
+		if(upw.equals(rs)) {
+			response.sendRedirect("http://localhost:8080/JDBCProject/user/loginWelcome.jsp?userid=" + uid);
+		} else {
+			response.sendRedirect("userPwFail.jsp");
+		}
+	} else {
+			response.sendRedirect("userIdFail.jsp");
+ 	}
+%>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%= uid %> <br />
+<%= rs %>
+
+<!--  
+	if(uid.equals(rs.getString(1)) { // 1) 아이디 체크 시  true
+	if(upw.equals(rs.getString(2)) { // 2) 비밀번호 체크 시 true면 
+		session.setAttribute("login_session",session); //  2-1) 세션 발급
+		response.sendRedirect("http://localhost:8080/JDBCProject/user/loginWelcome.jsp?userid=" + uid);// 2-2) 로그인 환영 페이지로 넘어감
+	} else {
+		response.sendRedirect("userPwFail.jsp");
+	}
+	} else { 
+		response.sendRedirect("userIdFail.jsp"); }  
+-->
+</body>
+</html>

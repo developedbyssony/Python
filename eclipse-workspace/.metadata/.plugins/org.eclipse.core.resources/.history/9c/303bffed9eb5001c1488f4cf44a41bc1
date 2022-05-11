@@ -1,0 +1,8 @@
+package com.ict.domain;
+
+public class uservo {
+
+	public static void main(String[] args) {
+		
+	}
+}

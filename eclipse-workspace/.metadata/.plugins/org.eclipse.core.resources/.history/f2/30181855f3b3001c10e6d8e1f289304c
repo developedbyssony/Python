@@ -1,0 +1,54 @@
+package com.ict.jdbc;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+public class PreparedInsert {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String dbType = "com.mysql.cj.jdbc.Driver";
+		String connectUrl = "jdbc:mysql://localhost:3306/jdbcprac2?serverTimezone=UTC";
+		String connectId = "root";
+		String connectPw = "mysql1111";
+		 
+		Scanner scan = new Scanner(System.in);
+		System.out.println("아이디를 입력해주세요");
+		String uid = scan.nextLine();
+		System.out.println("비밀번호를 입력해주세요");
+		String upw = scan.nextLine();
+		System.out.println("이름을 입력해주세요");
+		String uname = scan.nextLine();
+		System.out.println("이메일을 입력해주세요");
+		String uemail = scan.nextLine();
+		 
+		try {
+		Class.forName(dbType); 
+		Connection con = DriverManager.getConnection(connectUrl,connectId,connectPw); 
+		String sql = "INSERT INTO userinfo VALUES user_id = ?, user_pw = ?, user_name = ?, email = ?";
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setString(1,uid);
+		pstmt.setString(2,upw);
+		pstmt.setString(3,uname);
+		pstmt.setString(4,uemail);
+
+
+		ResultSet rs = pstmt.executeQuery();
+		 
+		if(rs.next()) {
+		System.out.print(rs.getString(1));
+		System.out.print(rs.getString(2));
+		System.out.print(rs.getString(3));
+		System.out.print(rs.getString(4));
+		} else {
+		System.out.print(uid + "는 db에 없는 아이디입니다.");
+		}
+		} catch(Exception e) {
+		e.printStackTrace();
+		}
+	}
+
+}

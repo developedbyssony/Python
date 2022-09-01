@@ -1,3 +1,0 @@
-리액트 라우트
-https://reactrouter.com/docs/en/v6/getting-started/tutorial#installation
-

@@ -1,9 +1,0 @@
-package com.ict.domain;
-
-public class uservo {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		String dbType = "com.mysql.cj.jdbc.Driver";
-		String c
